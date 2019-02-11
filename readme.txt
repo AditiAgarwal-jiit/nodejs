@@ -273,8 +273,13 @@ Delete the requested item from mongodb
 
 1. First find the requested item(object sent with the request as parameter) from the collection.
    Todo.find({task: req.params.task.replace(/\-/g," "));
-   
-
+   [ We are replacing the hyphens(-) in the object recieved with the request with spaces
+     because the object stored in db has spaces and not hyphens.So for comparison, we will 
+     have to remove hyphens]
+2. Now apply the remove() method on the fetched object to remove it from the database.
+   The remove method also has a callback function which has two parameters: error and data.
+    Todo.find({task: req.params.task.replace(/\-/g," ")).remove(function(err,data){});
+3. This will remove that object from the database. Now we don't need the js filter method to filter the array.
 
 
 
