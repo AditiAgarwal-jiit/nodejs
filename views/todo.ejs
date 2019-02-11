@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>My Task List</title>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/assets/styles.css" type="text/css">
+        <script src="assets/operations.js"></script>
+    </head>
+    <body>
+        <h1>My Task List</h1>
+        <div id="todo-list">
+        <form action="">
+            <input type="text" name="task" placeholder="Add new ToDo" required />
+            <button type="submit">Add Task</button>
+        </form>
+        <ul>
+           <% for(var i=0; i < todos.length; i++){ %>
+        <li><%= todos[i].task %></li>
+        <% } %>
+        </ul>
+        </div>
+    </body>
+</html>
