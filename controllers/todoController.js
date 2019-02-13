@@ -29,6 +29,19 @@ var urlencodedParser = bodyParser.urlencoded({extended:false});
 
 module.exports = function(app){
 
+    //temp - test route
+    app.get('/',function(req,res){
+        //res.render('todo',{todos: data});     //passing data to the view
+        //get data from mongdb and pass it to the view
+        Todo.find({},function(err,data){
+            if (err) throw err;
+            res.render('todo',  {todos: data})   //this data is the data fetched from the db 
+        });
+ 
+     });
+
+     //***********************************
+
     app.get('/todo',function(req,res){
        //res.render('todo',{todos: data});     //passing data to the view
        //get data from mongdb and pass it to the view
