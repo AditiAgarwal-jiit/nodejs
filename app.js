@@ -21,5 +21,12 @@ app.use(express.static('./public'));
 todoController(app);
 
 //listen to port for incoming requests on this port
-app.listen(3000);
-console.log("Server is listeing to port 3000");
+//app.listen(3000);
+//console.log("Server is listeing to port 3000");
+//for heroku listen on port process.env.PORT
+//app.listen(process.env.PORT);
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port);
